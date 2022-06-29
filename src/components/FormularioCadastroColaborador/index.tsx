@@ -9,7 +9,7 @@ const data = {
 };
 
 interface Props {
-    token: string
+    token: any
 }
 
 export default function FormularioCadastroColaborador({ token }: Props) {
@@ -25,14 +25,13 @@ export default function FormularioCadastroColaborador({ token }: Props) {
   const cadastrar = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     data.colaboradores.push(colaborador);
-    console.log(token);
 
     axios.post(
       'http://127.0.0.1:8000/login/colaborador/', 
       JSON.stringify(data),
       {
         headers: {
-          'Authorization': token
+          'Authorization': token.token
         }
       })
       .then(resposta => {
@@ -79,6 +78,7 @@ export default function FormularioCadastroColaborador({ token }: Props) {
               required
               id="data_de_nascimento"
               label="Data de nascimento"
+              type="date"
               value={colaborador.data_de_nascimento}
               onChange={evento => setColaborador({
                 ...colaborador, data_de_nascimento: evento.target.value

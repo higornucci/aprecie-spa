@@ -1,4 +1,4 @@
-export default interface IColaborador{
+export default interface IColaborador {
     id: number,
     nome : string,
     cpf: string,
