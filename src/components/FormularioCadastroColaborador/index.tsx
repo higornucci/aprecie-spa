@@ -1,7 +1,9 @@
 import { SaveOutlined } from '@mui/icons-material';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { Box, Button, Grid, TextField } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import IColaborador from '../../types/IColaborador';
 
 const data = {
@@ -9,16 +11,15 @@ const data = {
 };
 
 interface Props {
-    token: any
+  token: any
 }
 
 export default function FormularioCadastroColaborador({ token }: Props) {
-
   const [colaborador, setColaborador] = useState<IColaborador>({
     id: 0,
     nome: '',
     cpf: '',
-    data_de_nascimento: '',
+    data_de_nascimento: '2021-01-01',
     usuario_id_do_chat: ''
   });
 
@@ -27,7 +28,7 @@ export default function FormularioCadastroColaborador({ token }: Props) {
     data.colaboradores.push(colaborador);
 
     axios.post(
-      'http://127.0.0.1:8000/login/colaborador/', 
+      'http://127.0.0.1:8000/login/colaborador/',
       JSON.stringify(data),
       {
         headers: {
@@ -39,7 +40,7 @@ export default function FormularioCadastroColaborador({ token }: Props) {
       })
       .catch(erro => {
         console.log(erro);
-                
+
       });
   };
 
@@ -100,7 +101,7 @@ export default function FormularioCadastroColaborador({ token }: Props) {
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" type="submit" endIcon={<SaveOutlined />}>
-                            Cadastrar
+              Cadastrar
             </Button>
           </Grid>
         </Grid>

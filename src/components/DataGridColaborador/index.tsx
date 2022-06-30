@@ -21,7 +21,7 @@ export default function DataGridColaborador() {
       });
   }, []);
   return (
-    <Box sx={{ width: '100%', height: 300 }}>
+    <Box sx={{ width: '100%', height: '100%' }}>
       <h2>Lista de Colaboradores</h2>
       <DataGrid rows={colaboradores} columns={columns} autoHeight />
     </Box>

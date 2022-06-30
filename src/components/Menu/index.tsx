@@ -1,4 +1,5 @@
-import { ReactComponent as Logo } from '../../assets/logo-orange.svg';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../assets/logo-blue.svg';
 
 export default function Menu() {
   const rotas = [{
@@ -17,13 +18,13 @@ export default function Menu() {
     <nav>
       <Logo />
       <ul>
-        {rotas.map((rota, index) => (
+        {rotas.map((rota, index) => 
           <li key={index}>
-            <a href={rota.to}>
+            <Link to={rota.to}>
               {rota.label}
-            </a>
+            </Link>
           </li>
-        ))}
+        )}
       </ul>
     </nav>
   );
