@@ -13,6 +13,7 @@ export default function AprecieRouter() {
       <Routes>
         <Route path="/" element={<ListagemColaboradoresCadastrados />} />
         <Route path="/cadastro" element={<CadastroColaboradores token={token} />} />
+        <Route path="/cadastro/:id" element={<CadastroColaboradores token={token} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../assets/logo-blue.svg';
+import style from './Menu.module.scss';
+import logoAprecie from '../../assets/logo.png';
 
 export default function Menu() {
   const rotas = [{
@@ -15,17 +16,21 @@ export default function Menu() {
     to: '/apreciacoes'
   }];
   return (
-    <nav>
-      <Logo />
-      <ul>
-        {rotas.map((rota, index) => 
-          <li key={index}>
-            <Link to={rota.to}>
-              {rota.label}
-            </Link>
-          </li>
-        )}
-      </ul>
-    </nav>
+    <header className={style.cabecalhoSistema}>
+      <div className={style.cabecalhoSistema__containerPrimario}>
+        <a href="/">
+          <img className={style.cabecalhoSistema__logo} width="105" src={logoAprecie} alt="Logotipo do Digix UI"/>
+        </a>
+        <nav className={style.cabecalhoSistema__menu} aria-label="Menu principal">
+          <ul className={style.cabecalhoSistema__listaDeItens}>
+            {rotas.map((rota, index) => <li key={index}>
+              <Link className={style.cabecalhoSistema__itemDeMenu} to={rota.to}>
+                {rota.label}
+              </Link>
+            </li>)}
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 }

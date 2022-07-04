@@ -3,7 +3,7 @@ import Router from '../routes.js';
 
 export default function App() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Router />
     </Container>
   );
